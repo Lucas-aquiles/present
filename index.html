@@ -19,6 +19,109 @@
       }
 
       /* Partículas de fondo animadas */
+      .gallery-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 30px;
+        width: 100%;
+        max-width: 1400px;
+        padding: 0 40px;
+        margin-top: 30px;
+      }
+
+      .gallery-item {
+        position: relative;
+        overflow: hidden;
+        border-radius: 25px;
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        transition: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        cursor: pointer;
+      }
+
+      .gallery-image {
+        width: 100%;
+        height: 100%;
+        min-height: 420px;
+        object-fit: cover;
+        transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+        border: 6px solid transparent;
+        background: linear-gradient(white, white) padding-box,
+          linear-gradient(135deg, #667eea, #764ba2) border-box;
+        border-radius: 25px;
+      }
+
+      .gallery-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        padding: 20px;
+        background: linear-gradient(
+          0deg,
+          rgba(0, 0, 0, 0.8) 0%,
+          transparent 100%
+        );
+        color: white;
+        font-size: 22px;
+        font-weight: 600;
+        text-align: center;
+        opacity: 0;
+        transform: translateY(20px);
+        transition: all 0.5s ease;
+      }
+
+      /* Hover / Click → expandir imagen */
+      .gallery-item:hover {
+        transform: scale(1.03);
+        z-index: 20;
+        box-shadow: 0 30px 80px rgba(102, 126, 234, 0.5);
+      }
+
+      .gallery-item:hover .gallery-image {
+        transform: scale(1.12);
+      }
+
+      .gallery-item:hover .gallery-caption {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Fullscreen al hacer click (opcional pero impresionante) */
+      .gallery-item.fullscreen {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) scale(0.9) !important;
+        width: 90vw !important;
+        height: 90vh !important;
+        z-index: 9999 !important;
+        border-radius: 20px;
+        animation: zoomIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55) forwards;
+      }
+
+      .gallery-item.fullscreen .gallery-image {
+        height: 100%;
+        object-fit: contain;
+        background: #000;
+      }
+
+      @keyframes zoomIn {
+        to {
+          transform: translate(-50%, -50%) scale(1);
+        }
+      }
+
+      /* Responsive: en pantallas pequeñas pasa a columna */
+      @media (max-width: 968px) {
+        .gallery-grid {
+          grid-template-columns: 1fr;
+          padding: 0 20px;
+        }
+        .gallery-image {
+          min-height: 300px;
+        }
+      }
+
       .particles {
         position: fixed;
         top: 0;
@@ -473,6 +576,7 @@
       }
     </style>
   </head>
+
   <body>
     <!-- Partículas animadas -->
     <div class="particles"></div>
@@ -494,7 +598,7 @@
         <div class="slide-1-content">
           <div class="icon-decoration">🏫</div>
           <h1>Informe de Período de Observación</h1>
-          <h1>Práctica I</h1>
+          <h1>Práctica</h1>
           <h3 class="subtitle">
             Escuela Técnica N° 4-121 "Técnicos Mendocinos"
           </h3>
@@ -502,28 +606,6 @@
             Octubre 2025 | Turno mañana – 5° año, 10ma división
             (Electromecánica)
           </p>
-        </div>
-      </div>
-
-      <!-- Slide 2: Presentación del Informe -->
-      <div class="slide">
-        <div class="content-wrapper">
-          <div class="text-content">
-            <h2>¿Qué es este informe?</h2>
-            <ul>
-              <li>Observación en Práctica I</li>
-              <li>Análisis institucional, contextual y áulico</li>
-              <li>Enfoque en dinámicas pedagógicas</li>
-              <li>En escuela técnica</li>
-            </ul>
-          </div>
-          <div class="image-content">
-            <img
-              src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=800&q=80"
-              class="slide-image"
-              alt="Observación en aula"
-            />
-          </div>
         </div>
       </div>
 
@@ -554,6 +636,7 @@
       <div class="slide">
         <div class="content-wrapper">
           <div class="text-content">
+            <h1>Análisis del contexto</h1>
             <h2>Ubicación Geográfica</h2>
             <ul>
               <li>Guaymallén, Mendoza (zona urbana)</li>
@@ -564,7 +647,7 @@
           </div>
           <div class="image-content">
             <img
-              src="https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800&q=80"
+              src="./maps.JPG"
               class="slide-image"
               alt="Zona urbana Mendoza"
             />
@@ -572,9 +655,43 @@
         </div>
       </div>
 
+      <!-- imagen q quiero q se expandan  1 x 1 y abarquen la pantalla -->
+
+      <div class="slide">
+        <h2
+          class="subtitle"
+          style="margin-bottom: 40px; text-align: center; width: 100%"
+        >
+          Entorno y fachada de la institución
+        </h2>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="./tecnicosmen.webp"
+              class="gallery-image"
+              alt="Fachada Escuela Técnica Mendocinos"
+            />
+            <div class="gallery-caption">
+              Escuela Técnica N° 4-121 "Técnicos Mendocinos"
+            </div>
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="./Capturatransito.JPG"
+              class="gallery-image"
+              alt="Tránsito y entorno"
+            />
+            <div class="gallery-caption">Entorno urbano y acceso</div>
+          </div>
+        </div>
+      </div>
+      <!-- esta aca llega  -->
+
       <!-- Slide 5: Comunidad -->
       <div class="slide">
-        <div class="content-wrapper vertical">
+        <div class="content-wrapper ">
           <img
             src="https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?w=800&q=80"
             class="slide-image"
@@ -585,13 +702,67 @@
             <ul>
               <li>Estudiantes de barrios urbano-marginales</li>
               <li>Familias trabajadoras (oficios, servicios)</li>
-              <li>Vínculos escuela-familia positivos</li>
-              <li>Acompañamiento variable por hogar</li>
+              <li>Algunas familias tienen limitaciones económicas y poco acompañamiento, pero en general existe una buena relación con la escuela.</li>
+              <li>La institución mantiene un vínculo activo con la comunidad a través de ferias técnicas, cooperativas y actividades conjuntas</li>
             </ul>
           </div>
         </div>
       </div>
+<!-- imagen q quiero q se expandan  1 x 1 y abarquen la pantalla -->
 
+      <div class="slide">
+        <h2
+          class="subtitle"
+          style="margin-bottom: 40px; text-align: center; width: 100%"
+        >
+          barrios urbano-marginales
+        </h2>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="./barrio-fuerza-y-progeso-2jfif.webp"
+              class="gallery-image"
+              alt="Fachada Escuela Técnica Mendocinos"
+            />
+            
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="./foto-castro asentemiento.webp"
+              class="gallery-image"
+              alt="Tránsito y entorno"
+            />
+            <div class="gallery-caption"></div>
+          </div>
+          
+        </div>
+      </div>
+
+
+      <div class="slide">
+        <h2
+          class="subtitle"
+          style="margin-bottom: 40px; text-align: center; width: 100%"
+        >
+          barrios urbano-marginales
+        </h2>
+
+       <div class="gallery-item">
+            <img
+              src="./inseguridad-guaymallen-edificio-incendiadojpg.webp"
+              class="gallery-image"
+              alt="Tránsito y entorno"
+            />
+            <div class="gallery-caption">Entorno urbano y acceso</div>
+          </div>
+
+        
+      </div>
+
+       
+      <!-- esta aca llega  -->
       <!-- Slide 6: Organización -->
       <div class="slide">
         <div class="content-wrapper">
@@ -613,6 +784,64 @@
           </div>
         </div>
       </div>
+
+
+<!-- imagen q quiero q se expandan  1 x 1 y abarquen la pantalla -->
+
+      <div class="slide">
+        <h2
+          class="subtitle"
+          style="margin-bottom: 40px; text-align: center; width: 100%"
+        >
+          barrios urbano-marginales
+        </h2>
+
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img
+              src="./barrio-fuerza-y-progeso-2jfif.webp"
+              class="gallery-image"
+              alt="Fachada Escuela Técnica Mendocinos"
+            />
+            
+          </div>
+
+          <div class="gallery-item">
+            <img
+              src="./foto-castro asentemiento.webp"
+              class="gallery-image"
+              alt="Tránsito y entorno"
+            />
+            <div class="gallery-caption"></div>
+          </div>
+          
+        </div>
+      </div>
+
+
+      <div class="slide">
+        <h2
+          class="subtitle"
+          style="margin-bottom: 40px; text-align: center; width: 100%"
+        >
+          espacio escolar
+        </h2>
+
+       <div class="gallery-item">
+            <img
+              src="./inseguridad-guaymallen-edificio-incendiadojpg.webp"
+              class="gallery-image"
+              alt="Tránsito y entorno"
+            />
+            <div class="gallery-caption">Entorno urbano y acceso</div>
+          </div>
+
+        
+      </div>
+
+       
+      <!-- esta aca llega  -->
+
 
       <!-- Slide 7: Proyecto -->
       <div class="slide">
@@ -796,6 +1025,57 @@
 
       // Inicializar
       updateSlide();
+    </script>
+
+   
+    </div> <!-- cierre de .presentation -->
+
+    <script>
+    
+
+       
+
+      // Teclas ← → y flechas del teclado
+      document.addEventListener('keydown', e => {
+        if (e.key === 'ArrowLeft') {
+          currentSlide = (currentSlide - 1 + slides.length) % slides.length;
+          showSlide(currentSlide);
+        } else if (e.key === 'ArrowRight' || e.key === ' ') {
+          currentSlide = (currentSlide + 1) % slides.length;
+          showSlide(currentSlide);
+        }
+      });
+
+      // ==================== GALERÍA FULLSCREEN ====================
+      document.querySelectorAll('.gallery-item').forEach(item => {
+        item.addEventListener('click', function(e) {
+          e.stopPropagation();
+          this.classList.toggle('fullscreen');
+        });
+      });
+
+      // Cerrar fullscreen al hacer click fuera de la imagen
+      document.addEventListener('click', () => {
+        document.querySelectorAll('.gallery-item.fullscreen').forEach(item => {
+          item.classList.remove('fullscreen');
+        });
+      });
+
+      
+
+      // ==================== EFECTO BRILLO QUE SIGUE AL MOUSE ====================
+      document.querySelectorAll('.slide').forEach(slide => {
+        slide.addEventListener('mousemove', e => {
+          const rect = slide.getBoundingClientRect();
+          const x = ((e.clientX - rect.left) / rect.width) * 100;
+          const y = ((e.clientY - rect.top) / rect.height) * 100;
+          slide.style.setProperty('--mouse-x', x + '%');
+          slide.style.setProperty('--mouse-y', y + '%');
+        });
+      });
+
+      // Iniciar en el primer slide
+      showSlide(0);
     </script>
   </body>
 </html>
