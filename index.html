@@ -599,6 +599,47 @@
         transform: scale(1.5);
         background: rgba(102, 126, 234, 0.3);
       }
+
+
+      /* Animación suave */
+@keyframes softPulse {
+  0% {
+    background-color: rgba(12, 37, 148, 0.08);
+  }
+  50% {
+    background-color: rgba(41, 11, 70, 0.18);
+  }
+  100% {
+    background-color: rgba(209, 51, 30, 0.08);
+  }
+}
+
+/* SOLO afecta a <li> dentro de .pulse-list */
+.pulse-list li {
+  animation: softPulse 6s ease-in-out infinite;
+}
+@keyframes heartbeat {
+  0% {
+    transform: scale(1);
+  }
+  15% {
+    transform: scale(1.15);
+  }
+  30% {
+    transform: scale(1);
+  }
+  45% {
+    transform: scale(1.15);
+  }
+  60% {
+    transform: scale(1);
+  }
+}
+
+.heartbeat {
+  animation: heartbeat 1.5s infinite;
+  transform-origin: center;
+}
     </style>
   </head>
 <!---------------------------------------------------------------------------------------------------------->
@@ -644,7 +685,7 @@
         <div class="content-wrapper">
           <div class="image-content">
             <img
-              src="https://images.unsplash.com/photo-1581726690015-c9861fa5057f?w=800&q=80"
+              src="./obj.jpg"
               class="slide-image"
               alt="Docente enseñando"
             />
@@ -836,16 +877,16 @@
 
 
   
-
+<!-- ----------------------------------------------------------------->
        
       <!-- esta aca llega  -->
 
 
       <!-- Slide 7: Proyecto -->
       <div class="slide">
-        <div class="content-wrapper vertical">
+        <div class="content-wrapper ">
           <img
-            src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=800&q=80"
+            src="./escuelalaboratorio.jpg"
             class="slide-image"
             alt="Trabajo en taller"
           />
@@ -861,27 +902,7 @@
         </div>
       </div>
 
-      <!-- Slide 8: Sentido Pedagógico -->
-      <div class="slide">
-        <div class="content-wrapper">
-          <div class="image-content">
-            <img
-              src="https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?w=800&q=80"
-              class="slide-image"
-              alt="Aprendizaje práctico"
-            />
-          </div>
-          <div class="text-content">
-            <h2>Sentido Pedagógico</h2>
-            <ul>
-              <li>Juego como recurso didáctico</li>
-              <li>Práctica de saberes técnicos</li>
-              <li>Consolidación de conceptos</li>
-              <li>Desarrollo de habilidades</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+      
 
       <!-- Slide 9: Curso Observado -->
       <div class="slide">
@@ -897,7 +918,7 @@
           </div>
           <div class="image-content">
             <img
-              src="https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&q=80"
+              src="./tallerelectro.webp"
               class="slide-image"
               alt="Estudiantes en taller electromecánica"
             />
@@ -905,23 +926,114 @@
         </div>
       </div>
 
+
+            <!-- Slide 9: Fodaaaaaa -->
+
+     <div class="slide">
+  <h2>Foda</h2>
+    <div class="content-wrapper">
+           <div class="text-content">  
+            <h3>Fortalezas</h3>
+            <ul>
+              <li>Compromiso del cuerpo docente.</li>
+            <li>Buena articulación teoría–práctica.</li>
+            <li>Clima institucional favorable.</li>
+            </ul>
+          </div>         
+           <div class="text-content">
+            <h3>Oportunidades</h3>
+            <ul>
+             <li>Ampliar el Laboratorio de Aprendizaje a más áreas.</li>
+            <li>Integrar estrategias lúdicas en más materias técnicas.</li>
+            <li>Potenciar la relación escuela–comunidad.</li>
+            </ul>
+          </div>
+          
+        </div>
+</div>
+      
+ <div class="slide">
+  <h2>Foda</h2>
+    <div class="content-wrapper">
+<div class="text-content">
+            
+            <h3>Debilidades</h3>
+            <ul >
+             <li>Falta de recursos materiales en algunos talleres。</li>
+            
+            <li>Desigual compromiso del estudiantado y uso del celular。</li>
+            <li>Necesidad de fortalecer la convivencia en ciertos grupos。</li>
+            </ul>
+          </div>         
+           <div class="text-content">
+            
+            <h3>Amenazas</h3>
+            <ul>
+             <li>Condiciones socioeconómicas que afectan la continuidad。</li>
+            <li>Falta de financiamiento que puede frenar proyectos。</li>
+            <li>Aumento del desinterés por distracciones digitales。</li>
+            </ul>
+          </div>
+          
+        </div>
+</div>
+
       <!-- Slide 10: Cierre -->
       <div class="slide">
         <div class="content-wrapper vertical">
+         
+          <div class="text-content">
+            <h2>Conclusiones</h2>
+             <ul>
+        <li>La observación permitió comprender de manera integral el funcionamiento institucional y áulico de la escuela.</li>
+        <li>Se destacó el compromiso docente, la buena predisposición del estudiantado y el valor de la enseñanza práctica en contextos técnicos.</li>
+        <li>Se identificaron desafíos en la convivencia, el uso del celular y la gestión de conflictos.</li>
+        
+      </ul>
+          </div>
+        </div>
+      </div>
+         <div class="slide">
+        <div class="content-wrapper vertical">
+          <div class="text-content">
+                     <h2>Conclusiones</h2>
+
+             <ul>
+        <li>El Laboratorio de Aprendizaje surge como una propuesta valiosa para fortalecer la motivación, la comprensión técnica y el pensamiento crítico.</li>
+        <li>Se evidenció la necesidad de mejorar la comunicación con las familias, optimizar los recursos de los talleres y sostener espacios de reflexión docente.</li>
+      </ul>
+          </div>
+        </div>
+      </div>
+        <!-- Slide 11: Propuesta -->
+      <div class="slide">
+        <div class="content-wrapper ">
           <img
-            src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800&q=80"
+            src="./PROPUESTA.jpg"
             class="slide-image"
             alt="Graduados celebrando"
           />
           <div class="text-content">
-            <h2>Reflexiones Finales</h2>
+            <h2>Propuesta de mejora</h2>
             <ul>
-              <li>Contexto clave para práctica educativa</li>
-              <li>Observación analiza vínculos y metodologías</li>
-              <li>Proyecto potencia aprendizajes significativos</li>
-              <li>Escuela técnica: formación integral</li>
+              <li>Fortalecer la convivencia escolar</li>
+              <li>Regular el uso del celular</li>
+              <li>Promover metodologías activas</li>
+              <li>Potenciar el acompañamiento docente</li>
             </ul>
           </div>
+        </div>
+      </div>
+
+         <!-- Slide 11: Propuesta -->
+      <div class="slide">
+        <div class="content-wrapper vertical ">
+          <img
+            src="./gracias.jpg"
+            class="slide-image "
+            alt="Graduados celebrando"
+          />
+          
         </div>
       </div>
     </div>
